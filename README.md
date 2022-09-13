@@ -44,11 +44,19 @@ The folloving variables is used:
 
 URL Shortener is very easy to install and deploy in a Docker container.
 
-By default, the Docker will expose port 8000, so change this within the
-Dockerfile if necessary.
+PostgreSQL is used as a separete container, so to make application up and running:
+
+```
+docker-compose up -d
+```
 
 
 ## Tests
 
-write smth here
+To run the test suite: 
+```
+pytest /shortener/test_main.py
+```
+If you are in the application directory use:
 
+```pytest test_main.py```
