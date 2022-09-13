@@ -12,5 +12,5 @@ class URL(Base):
     short_key_to_url = Column(String, unique=True, index=True)  # A random string that’ll be part of the shortened URL
     secret_key = Column(String, unique=True, index=True)  # A value is for managing shortened URL for users
     original_url = Column(String, index=True)
-    is_active = Column(Boolean, default=True)
-    clicks = Column(Integer, default=0)
+    is_active = Column(Boolean, default=True)  # Flag that helps to deactivate (not delete) instance of a short URL
+    clicks = Column(Integer, default=0)  # Count a short link visits
