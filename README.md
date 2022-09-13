@@ -53,10 +53,11 @@ docker-compose up -d
 
 ## Tests
 
-To run the test suite: 
-```
-pytest /shortener/test_main.py
-```
-If you are in the application directory use:
+Tests can be run from Python Console using: 
+```python -m pytest test_main.py```
 
-```pytest test_main.py```
+To run a particular case use:
+
+```pytest test_main.py::[put_func_name_here]```
+
+
