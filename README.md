@@ -35,9 +35,9 @@ All environment variable, that the project uses is in .env file ( It is insecure
 To make it work, nedd to change it to **.env**
 The folloving variables is used:
 
-- ENV_NAME - it is up to you to have several environment for different purpose ( for ex. Development, QA, Prod)
-- BASE_URL - the URL, shortener work on, using [Docker](##Docker) instalation it is localhost
-- DB_URL - what a name of a used DB and how it can be found in the app.
+- **ENV_NAME** - it is up to you to have several environment for different purpose ( for ex. Development, QA, Prod)
+- **BASE_URL** - the URL, shortener work on, using [Docker](##Docker) instalation it is localhost
+- **DB_URL** - what a name of a used DB and how it can be found in the app.
 
 
 ## Docker
