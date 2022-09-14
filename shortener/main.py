@@ -35,8 +35,8 @@ def create_app() -> FastAPI:
 #  Create app using function create_app()
 app = create_app()
 
-#  Bind the database engine with models
-models.Base.metadata.create_all(bind=engine)
+#  Create the Database
+models.Base.metadata.create_all(engine)
 
 
 def get_db():

@@ -1,16 +1,15 @@
 version: '3.7'
 
 services:
-  web:
-    build: ./src
+  app:
+    build: ./shortener
     command: uvicorn shortener.main:app --reload --workers 1 --host localhost --port 8000
     volumes:
       - ./src/:/usr/src/shortener/
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql://hello_fastapi:hello_fastapi@db/hello_fastapi_dev
-
+      - DATABASE_URL=postgresql://postgres:postgres@db/postgres_dev
   db:
     image: postgres:12.1-alpine
     volumes:
@@ -18,8 +17,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
+      - POSTGRES_DB=postgres_dev
 
   volumes:
     postgres_data:
-
