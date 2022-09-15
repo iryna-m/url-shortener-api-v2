@@ -32,23 +32,38 @@ To have it installed independently, the following command should be run:
 ## Configuration
 
 All environment variable, that the project uses is in .env file ( It is insecure to store it open, so you can find a sample, called ***.env_sample***
-To make it work, nedd to change it to **.env**
-The folloving variables is used:
+To make it work, need to change it to **.env** and add your data there
+The following variables is used:
 
 - **ENV_NAME** - it is up to you to have several environment for different purpose ( for ex. Development, QA, Prod)
 - **BASE_URL** - the URL, shortener work on, using [Docker](##Docker) instalation it is localhost
 - **DB_URL** - what a name of a used DB and how it can be found in the app.
-
+- **DB_USERNAME** - username for your database
+- **DB_PASSWORD** - password for enter the DB
+- **DB_NAME** - name of your database
+- **DB_HOST** - the host where your DB is running
+- **DB_PORT** - The DB port
 
 ## Docker
 
 URL Shortener is very easy to install and deploy in a Docker container.
 
-PostgreSQL is used as a separete container, so to make application up and running:
+PostgreSQL is used as a separate container, so to make application up and running:
 
 ```
 docker-compose up -d
 ```
+
+To have the application running :
+```
+docker exec 7c5431217444  uvicorn main:app --reload
+```
+
+To connect to the PostgreSQL:
+```
+docker-compose exec db psql --username=postgres --dbname=shortener_db
+```
+
 
 
 ## Tests

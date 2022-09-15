@@ -7,9 +7,9 @@ from sqlalchemy.orm import Session
 from fastapi.responses import RedirectResponse
 from starlette.datastructures import URL
 
-from .config import get_settings
-from .custom_logging import CustomizeLogger
-from .database import SessionLocal, engine
+from config import get_settings
+from custom_logging import CustomizeLogger
+from database import SessionLocal, engine
 
 from shortener import schemas, models, crud
 

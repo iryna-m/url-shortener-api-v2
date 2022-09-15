@@ -1,4 +1,4 @@
-FROM python:3.8.1-alpine
+FROM python:3.8.3-slim
 
 # set working directory
 WORKDIR /shortener
@@ -7,17 +7,15 @@ WORKDIR /shortener
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# copy requirements.txt to working directory
-COPY ../requirements.txt /shortener/requirements.txt
+# copy project to Docker working directory
+COPY requirements.txt /shortener/requirements.txt
+COPY . .
 
 # set dependencies
-RUN set -eux \
-    && apk add --no-cache --virtual .build-deps build-base \
-        libressl-dev libffi-dev gcc musl-dev python3-dev \
-        postgresql-dev \
-    && pip install --upgrade pip setuptools wheel \
-    && pip install -r /shortener/requirements.txt \
-    && rm -rf /root/.cache/pip
+RUN apt-get update \
+    && apt-get -y install libpq-dev gcc \
+    && pip install psycopg2 \
+    && pip install -r requirements.txt
 
-# copy project to Docker working directory
-COPY . /shortener
+EXPOSE 8000
+CMD ["uvicorn", "main:app", "--reload", "--host", "127.0.0.1", "--port", "8000"]

@@ -2,7 +2,7 @@
 
 from sqlalchemy.orm import Session
 
-from . import keygen, models, schemas
+import keygen, models, schemas
 
 
 def get_db_url_by_short_key(db: Session, url_key: str) -> models.URL:
