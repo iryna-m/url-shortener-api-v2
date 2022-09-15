@@ -70,7 +70,8 @@ docker exec 7c5431217444  uvicorn main:app --reload
 ```
 
 To connect to the PostgreSQL:
-``
+
+```
 docker-compose exec db psql --username=postgres --dbname=shortener_db
 ```
 
