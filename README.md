@@ -44,6 +44,16 @@ The following variables is used:
 - **DB_HOST** - the host where your DB is running
 - **DB_PORT** - The DB port
 
+## Run Application
+
+To have the API running without docker file:
+
+- Clone the project
+- Change .env_sample to .env
+- Change data in .env
+- Go to project folder and run : 
+ ```uvicorn shortener/main:app --reload ```
+
 ## Docker
 
 URL Shortener is very easy to install and deploy in a Docker container.
@@ -60,7 +70,7 @@ docker exec 7c5431217444  uvicorn main:app --reload
 ```
 
 To connect to the PostgreSQL:
-```
+``
 docker-compose exec db psql --username=postgres --dbname=shortener_db
 ```
 
